@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inam Ul Haq · Solution Architect, Salesforce & .NET</title>
+<meta name="description" content="Inam Ul Haq: Solution Architect with 11+ years in software and 6+ in Salesforce. Salesforce Certified B2C Commerce Developer. Commerce Cloud, multi-cloud Salesforce and .NET Core microservices.">
+<meta property="og:title" content="Inam Ul Haq · Solution Architect, Salesforce & .NET">
+<meta property="og:description" content="Commerce Cloud, multi-cloud Salesforce and .NET Core microservices. 11+ years in software, 6+ in Salesforce.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f8fa; --surface:#ffffff; --surface-2:#f0f2f5; --text:#14171c; --muted:#5b6472;
+  --border:#e2e6eb; --accent:#0b6bcb; --accent-soft:#e6f0fb; --accent-2:#6d3fd6;
+  --shadow:0 1px 2px rgba(16,24,40,.04),0 4px 16px rgba(16,24,40,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d1117; --surface:#151b23; --surface-2:#1b222c; --text:#e6e9ee; --muted:#9aa4b2;
+    --border:#262f3b; --accent:#5aa9f5; --accent-soft:#16283d; --accent-2:#a98bff;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d1117; --surface:#151b23; --surface-2:#1b222c; --text:#e6e9ee; --muted:#9aa4b2;
+  --border:#262f3b; --accent:#5aa9f5; --accent-soft:#16283d; --accent-2:#a98bff;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.brand{font-weight:700;color:var(--text);letter-spacing:-.01em}
+.brand span{color:var(--accent)}
+.links{display:flex;gap:22px;align-items:center}
+.links a{color:var(--muted);font-size:14px;font-weight:500}
+.links a:hover{color:var(--text);text-decoration:none}
+.theme{background:none;border:1px solid var(--border);color:var(--muted);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:15px}
+@media (max-width:760px){.links a:not(.keep){display:none}}
+
+/* hero */
+.hero{padding:84px 0 56px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:6px 12px;border-radius:999px}
+.dot{width:8px;height:8px;border-radius:50%;background:#22a06b;box-shadow:0 0 0 3px color-mix(in srgb,#22a06b 25%,transparent)}
+h1{font-size:clamp(36px,6vw,58px);line-height:1.08;letter-spacing:-.03em;margin:20px 0 14px}
+h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:720px;margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font-weight:600;font-size:15px;border:1px solid var(--border);background:var(--surface);color:var(--text)}
+.btn:hover{text-decoration:none;border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn svg{width:17px;height:17px}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--muted);font-size:14px}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:8px 0 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:30px;letter-spacing:-.02em;line-height:1.1}
+.stat span{color:var(--muted);font-size:14px}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* sections */
+section{padding:72px 0 0}
+.sec-head{margin-bottom:28px}
+.sec-head .k{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h2{font-size:clamp(26px,3.6vw,34px);letter-spacing:-.02em;margin:6px 0 8px;line-height:1.2}
+.sec-head p{color:var(--muted);margin:0;max-width:680px}
+
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media (max-width:900px){.grid3{grid-template-columns:1fr}}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px;font-size:18px;letter-spacing:-.01em}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.icon{width:40px;height:40px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:14px}
+.icon svg{width:21px;height:21px}
+.card ul{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:14.5px}
+.card li{margin:4px 0}
+
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font-size:12.5px;font-weight:500;padding:4px 9px;border-radius:6px;background:var(--surface-2);color:var(--muted);border:1px solid var(--border)}
+
+/* case studies */
+.case{display:flex;flex-direction:column}
+.case .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:6px}
+.case .where{font-size:13px;color:var(--muted);white-space:nowrap}
+.case .metric{font-size:26px;font-weight:700;letter-spacing:-.02em;color:var(--accent);margin:10px 0 2px}
+.case .metric small{display:block;font-size:13px;font-weight:500;color:var(--muted);letter-spacing:0}
+.case ul{flex:1}
+
+/* timeline */
+.tl{position:relative;padding-left:26px}
+.tl:before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--border)}
+.job{position:relative;padding-bottom:30px}
+.job:last-child{padding-bottom:0}
+.job:before{content:"";position:absolute;left:-26px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--surface);border:3px solid var(--accent)}
+.job.past:before{border-color:var(--muted)}
+.job h3{margin:0;font-size:18px}
+.job .co{color:var(--muted);font-size:15px;margin:2px 0 8px}
+.job .co b{color:var(--text);font-weight:600}
+.job ul{margin:0;padding-left:18px;color:var(--muted);font-size:15px}
+.job li{margin:3px 0}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media (max-width:760px){.skills{grid-template-columns:1fr}}
+.skill h4{margin:0 0 4px;font-size:14px;color:var(--text)}
+
+/* creds */
+.cred{display:flex;gap:16px;align-items:center}
+.badge{flex:none;width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#00a1e0,#0b6bcb);display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px}
+.badge.edu{background:linear-gradient(135deg,var(--accent-2),#4b2aa8)}
+
+/* contact */
+.contact{margin:72px 0 0;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-radius:20px;padding:44px 36px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.contact h2{margin:0 0 6px;color:#fff}
+.contact p{margin:0;opacity:.9;max-width:560px}
+.contact .btn{background:#fff;color:#14171c;border-color:#fff}
+.contact .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+footer{padding:36px 0 48px;color:var(--muted);font-size:14px;text-align:center}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Inam Ul Haq<span>.</span></a>
+    <div class="links">
+      <a href="#expertise">Expertise</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a class="keep" href="#contact">Contact</a>
+      <button class="theme" id="theme" aria-label="Toggle dark mode">◐</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>Open to remote roles and relocation</span>
+    <h1>Solution Architect for<br><span class="grad">Salesforce &amp; .NET</span> platforms</h1>
+    <p class="lead">I design and build commerce systems that hold up when everyone shops at once: Salesforce Commerce Cloud and multi-cloud programs on one side, .NET Core microservices and multi-tenant SaaS on the other. 11+ years in software, 6+ in Salesforce.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://www.linkedin.com/in/inam1567/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        LinkedIn</a>
+      <a class="btn" href="resume.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        Download resume</a>
+      <a class="btn" href="mailto:Inam.it1567@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        Email me</a>
+    </div>
+    <div class="meta">
+      <span>📍 Lahore, Pakistan · also works from the UAE</span>
+      <span>✓ Salesforce Certified B2C Commerce Developer</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><b>100K+</b><span>orders/hour architected at peak</span></div>
+    <div class="stat"><b>10+</b><span>Shopify → SFCC migrations, zero downtime</span></div>
+    <div class="stat"><b>1.4M</b><span>SAP customer records into Data Cloud</span></div>
+    <div class="stat"><b>30+</b><span>engineers hired and mentored</span></div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section id="expertise">
+    <div class="sec-head">
+      <div class="k">Expertise</div>
+      <h2>Three areas I work across</h2>
+      <p>I lead the technical side for 10–20 engineers across 3–5 concurrent programs, and I stay hands-on in the code.</p>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></div>
+        <h3>Salesforce Commerce Cloud</h3>
+        <p>SFRA, PWA Kit and Storefront Next, hybrid headless, multi-site architecture, Page Designer, and the integrations around them.</p>
+        <div class="tags"><span class="tag">SFRA</span><span class="tag">PWA Kit</span><span class="tag">Storefront Next</span><span class="tag">SCAPI / OCAPI</span><span class="tag">Managed Runtime</span><span class="tag">Cartridges</span></div>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+        <h3>Multi-cloud Salesforce</h3>
+        <p>Programs spanning Commerce, Order Management, Omni-Channel Inventory, Data Cloud, Service Cloud and Marketing Cloud, plus core platform builds.</p>
+        <div class="tags"><span class="tag">OMS</span><span class="tag">Data Cloud</span><span class="tag">Marketing Cloud</span><span class="tag">Apex</span><span class="tag">LWC</span><span class="tag">Flows</span></div>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></div>
+        <h3>.NET full stack &amp; SaaS</h3>
+        <p>Event-driven microservices and multi-tenant SaaS on .NET Core and Azure, with React or Angular front ends and identity federation.</p>
+        <div class="tags"><span class="tag">C# / .NET Core</span><span class="tag">Azure / AKS</span><span class="tag">DDD · CQRS</span><span class="tag">Kafka / RabbitMQ</span><span class="tag">React</span><span class="tag">OAuth2 / OIDC</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="sec-head">
+      <div class="k">Selected work</div>
+      <h2>Case studies</h2>
+      <p>Most of this work is under client agreements, so these summaries describe the architecture and my role, not the code.</p>
+    </div>
+    <div class="grid2">
+      <article class="card case">
+        <div class="top"><h3>Elezaby Pharmacy</h3><span class="where">Egypt · Architect</span></div>
+        <p>Multi-cloud commerce for a pharmacy chain, with a Flutter app on iOS and Android.</p>
+        <div class="metric">485 locations<small>1.4M SAP customer records migrated into Data Cloud</small></div>
+        <ul>
+          <li>Zone-based inventory aggregation between SAP and Omni-Channel Inventory</li>
+          <li>Apex REST API with mobile-number-as-identifier upsert; E.164 phone normalisation as match key</li>
+          <li>OMS via LOM connector with PayTabs; SFCC CI/CD on GitHub Actions with eCDN</li>
+          <li>WhatsApp campaign via Journey Builder, scaled 2K → 10K → 100K</li>
+        </ul>
+        <div class="tags"><span class="tag">SFCC</span><span class="tag">OMS</span><span class="tag">Data Cloud</span><span class="tag">Marketing Cloud</span><span class="tag">Heroku</span><span class="tag">Flutter</span></div>
+      </article>
+
+      <article class="card case">
+        <div class="top"><h3>Sapphire Retail</h3><span class="where">Global · Architect</span></div>
+        <p>SFRA architecture feeding Salesforce Order Management during peak sales events.</p>
+        <div class="metric">100K+ orders/hour<small>sustained into OMS at peak</small></div>
+        <ul>
+          <li>SCAPI and OCAPI integrations for order orchestration and payment flows</li>
+          <li>Performance tuning and caching strategy for stability under extreme load</li>
+          <li>Event tracking, personalisation and behaviour analytics</li>
+        </ul>
+        <div class="tags"><span class="tag">SFRA</span><span class="tag">OMS</span><span class="tag">SCAPI</span><span class="tag">Performance</span></div>
+      </article>
+
+      <article class="card case">
+        <div class="top"><h3>Scotts Miracle-Gro</h3><span class="where">USA · Fortune 1000</span></div>
+        <p>Moved a multi-brand portfolio (Scotts, Miracle-Gro, Ortho, Roundup and more) from separate platforms onto one SFCC codebase.</p>
+        <div class="metric">30K+ orders/hour<small>with complex product bundling and seasonal peaks</small></div>
+        <ul>
+          <li>Seasonal campaign automation and promotion engines for Black Friday and spring launches</li>
+          <li>OMS, ERP and PIM integrations; subscriptions (OrderGroove), Zoovu discovery</li>
+          <li>Eight payment methods including Stripe, Vantiv, PayPal, Apple Pay and Afterpay</li>
+        </ul>
+        <div class="tags"><span class="tag">SFCC</span><span class="tag">Multi-brand</span><span class="tag">Avalara</span><span class="tag">Contentstack</span></div>
+      </article>
+
+      <article class="card case">
+        <div class="top"><h3>CARA Jewellers</h3><span class="where">UAE &amp; UK · Architect</span></div>
+        <p>Phase 1 multi-cloud program launching bilingual English/Arabic storefronts in two markets.</p>
+        <div class="metric">4 clouds · 6 payment methods<small>Commerce (Storefront Next), Service, Data and Marketing Cloud</small></div>
+        <ul>
+          <li>ERP integration design: order export, invoices to Service Cloud, daily POS sync feeding loyalty tiers</li>
+          <li>Custom orders via Service Cloud cases with split 25%/75% payments; KYC for high-value orders</li>
+          <li>Managed Runtime domain mapping across dev, staging and production</li>
+        </ul>
+        <div class="tags"><span class="tag">Storefront Next</span><span class="tag">Service Cloud</span><span class="tag">Tabby / Tamara</span><span class="tag">Checkout.com</span></div>
+      </article>
+
+      <article class="card case">
+        <div class="top"><h3>Healthcare SaaS (KSA)</h3><span class="where">Saudi Arabia · Architect</span></div>
+        <p>Multi-tenant healthcare SaaS for Saudi government agencies and pharmacy operations.</p>
+        <div class="metric">50+ locations<small>government-backed pharmacy on the platform</small></div>
+        <ul>
+          <li>Azure microservices with RBAC, data privacy and compliance controls</li>
+          <li>Tenant isolation designed for agencies and pharmacy operators on one platform</li>
+        </ul>
+        <div class="tags"><span class="tag">.NET Core</span><span class="tag">Azure</span><span class="tag">Multi-tenant</span><span class="tag">RBAC</span></div>
+      </article>
+
+      <article class="card case">
+        <div class="top"><h3>Headless SMB marketing platform</h3><span class="where">UAE telecom · Prototype</span></div>
+        <p>Phase 1 of a 5-week prototype for a multi-tenant marketing platform aimed at small businesses.</p>
+        <div class="metric">5 weeks<small>from brief to working Phase 1</small></div>
+        <ul>
+          <li>React customer portal and operations console over .NET Core APIs</li>
+          <li>SQL Server and PostgreSQL; Marketing Cloud Advanced with one business unit per tenant</li>
+          <li>Agentforce nudges inside the customer journey</li>
+        </ul>
+        <div class="tags"><span class="tag">React</span><span class="tag">.NET Core</span><span class="tag">PostgreSQL</span><span class="tag">Agentforce</span></div>
+      </article>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h3>More commerce migrations and builds</h3>
+      <p>Black Rifle Coffee (Shopify → hybrid PWA on SFRA, Order-On-Behalf-Of in headless), Havaianas (legacy global site rebuilt on SFCC with Adyen), PopSockets, Shoe Show, Dooney &amp; Bourke, Fender, Jackson, Living Proof, Khaadi, and core-platform work for Ritchey Livestock ID, TIDI and CVSciences.</p>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="sec-head">
+      <div class="k">Own products</div>
+      <h2>What I'm building</h2>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>Auth Service</h3>
+        <p>Multi-tenant identity and access platform: one login across products, tenant and platform admin consoles, self-service tenant signup and seat limits. .NET back end complete; Blazor Web App UI in progress.</p>
+        <div class="tags"><span class="tag">.NET</span><span class="tag">Blazor</span><span class="tag">OIDC</span><span class="tag">Multi-tenant</span></div>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg></div>
+        <h3>Marketing SaaS</h3>
+        <p>WhatsApp messaging and campaign management product with a self-service customer portal.</p>
+        <div class="tags"><span class="tag">.NET</span><span class="tag">WhatsApp API</span><span class="tag">Campaigns</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head">
+      <div class="k">Experience</div>
+      <h2>Career</h2>
+    </div>
+    <div class="tl">
+      <div class="job">
+        <h3>Solution Architect</h3>
+        <div class="co"><b>Nestosh / 20Three Digital</b> · Sep 2021 – present · Lahore &amp; UAE</div>
+        <ul>
+          <li>Technical lead and architect for 10–20 engineers across 3–5 concurrent Salesforce programs in retail, healthcare, real estate and government</li>
+          <li>Led 10+ Shopify-to-SFCC migrations with zero downtime and migrated 5 sites from third-party CMS to Page Designer</li>
+          <li>Integrated SFCC with OMS, ERP and PIM via SCAPI and OCAPI; architectural oversight of Node.js microservices for checkout, inventory and promotions</li>
+          <li>Designed a microservices-based SaaS marketing platform serving 500+ tenants</li>
+          <li>Hired, onboarded and mentored 30+ engineers; ran architecture and code reviews</li>
+        </ul>
+      </div>
+      <div class="job past">
+        <h3>Development Consultant</h3>
+        <div class="co"><b>Systems Limited</b> · Aug 2019 – Aug 2021 · Lahore</div>
+        <ul>
+          <li>Migrated 3+ services from a legacy monolith to .NET Core and Angular microservices on Azure Kubernetes</li>
+          <li>Identity federation for enterprise SaaS (Auth0, OAuth2, JWT, SSO); cloud-native APIs and CI/CD</li>
+          <li>Clean and Onion Architecture, code audits and SQL Server optimisation</li>
+        </ul>
+      </div>
+      <div class="job past">
+        <h3>Senior Software Engineer</h3>
+        <div class="co"><b>DPL</b> · May 2018 – Jul 2019 · Islamabad</div>
+        <ul>
+          <li>Introduced CI/CD release management and test-driven development</li>
+          <li>HIPAA-compliant healthcare platform (ASP.NET Core, Dapper, MySQL on Google Cloud) and a PPC analytics tool aggregating Google, Yahoo and Bing Ads data</li>
+        </ul>
+      </div>
+      <div class="job past">
+        <h3>Software Engineer</h3>
+        <div class="co"><b>Softorea Solutions</b> · Feb 2016 – Apr 2018 · Islamabad</div>
+        <ul>
+          <li>Monitoring portals, GIS search and dashboards for the KPK Education and Health departments</li>
+          <li>Avaya contact-centre IVR integrations for Pakistan Stock Exchange and Emaar Dubai; SignalR web chat POC</li>
+        </ul>
+      </div>
+      <div class="job past">
+        <h3>Associate Software Engineer</h3>
+        <div class="co"><b>Apollo Telecom</b> · Aug 2015 – Feb 2016 · Islamabad</div>
+        <ul>
+          <li>Built a C# CTI desktop application deployed across all Ufone call centres</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head">
+      <div class="k">Skills</div>
+      <h2>Toolbox</h2>
+    </div>
+    <div class="skills">
+      <div class="card skill"><h4>Salesforce clouds</h4><div class="tags"><span class="tag">B2C Commerce</span><span class="tag">Order Management</span><span class="tag">Omni-Channel Inventory</span><span class="tag">Data Cloud</span><span class="tag">Service Cloud</span><span class="tag">Sales Cloud</span><span class="tag">Marketing Cloud</span></div></div>
+      <div class="card skill"><h4>Core platform</h4><div class="tags"><span class="tag">Apex (Batch, Scheduled, REST)</span><span class="tag">LWC</span><span class="tag">Visualforce</span><span class="tag">Flows</span><span class="tag">SOQL</span><span class="tag">Sharing model</span><span class="tag">Data Loader</span></div></div>
+      <div class="card skill"><h4>.NET</h4><div class="tags"><span class="tag">C#</span><span class="tag">.NET Core</span><span class="tag">ASP.NET Core</span><span class="tag">Web API</span><span class="tag">Blazor</span><span class="tag">Entity Framework</span><span class="tag">Dapper</span><span class="tag">SignalR</span></div></div>
+      <div class="card skill"><h4>Architecture</h4><div class="tags"><span class="tag">Microservices</span><span class="tag">Event-driven</span><span class="tag">Multi-tenant SaaS</span><span class="tag">DDD</span><span class="tag">CQRS</span><span class="tag">Clean Architecture</span><span class="tag">Micro frontends</span></div></div>
+      <div class="card skill"><h4>Front end &amp; mobile</h4><div class="tags"><span class="tag">React</span><span class="tag">Angular</span><span class="tag">TypeScript</span><span class="tag">Vue.js</span><span class="tag">Flutter</span></div></div>
+      <div class="card skill"><h4>Cloud, data &amp; DevOps</h4><div class="tags"><span class="tag">Azure</span><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Docker</span><span class="tag">Kubernetes / AKS</span><span class="tag">Terraform</span><span class="tag">GitHub Actions</span><span class="tag">Azure DevOps</span><span class="tag">SQL Server</span><span class="tag">PostgreSQL</span><span class="tag">Kafka</span><span class="tag">Redis</span></div></div>
+      <div class="card skill"><h4>Commerce integrations</h4><div class="tags"><span class="tag">Stripe</span><span class="tag">Adyen</span><span class="tag">PayPal</span><span class="tag">Checkout.com</span><span class="tag">Tabby / Tamara</span><span class="tag">Avalara</span><span class="tag">Contentstack</span><span class="tag">Constructor.io</span><span class="tag">Bloomreach</span><span class="tag">SAP</span></div></div>
+      <div class="card skill"><h4>Identity &amp; security</h4><div class="tags"><span class="tag">Auth0</span><span class="tag">OAuth2</span><span class="tag">OIDC</span><span class="tag">JWT</span><span class="tag">SSO</span><span class="tag">RBAC</span><span class="tag">HIPAA</span></div></div>
+    </div>
+  </section>
+
+  <section id="credentials">
+    <div class="sec-head">
+      <div class="k">Credentials</div>
+      <h2>Certification &amp; education</h2>
+    </div>
+    <div class="grid2">
+      <div class="card cred">
+        <div class="badge">SF</div>
+        <div><h3>Salesforce Certified B2C Commerce Developer</h3><p>Salesforce</p></div>
+      </div>
+      <div class="card cred">
+        <div class="badge edu">BS</div>
+        <div><h3>BS Information Technology</h3><p>Government College University Faisalabad · 2015</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <div>
+      <h2>Let's talk</h2>
+      <p>Open to Solution Architect, Salesforce Technical Lead and Senior .NET roles, remote or with relocation (EU, UK, Gulf, US).</p>
+    </div>
+    <div class="cta">
+      <a class="btn" href="mailto:Inam.it1567@gmail.com">Inam.it1567@gmail.com</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/inam1567/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</main>
+
+<footer>© <span id="y"></span> Inam Ul Haq · Built with plain HTML &amp; CSS, hosted on GitHub Pages</footer>
+
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+(function(){
+  var root=document.documentElement, btn=document.getElementById('theme'), saved=null;
+  try{saved=localStorage.getItem('theme')}catch(e){}
+  if(saved) root.setAttribute('data-theme',saved);
+  btn.addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var next=cur==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next)}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
